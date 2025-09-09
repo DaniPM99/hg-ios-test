@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "greensInsignia.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
