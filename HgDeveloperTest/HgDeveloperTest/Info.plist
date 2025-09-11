@@ -5,6 +5,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Basier Circle Regular.otf</string>
+		<string>Futura Std Bold.otf</string>
+		<string>Futura Std Medium.otf</string>
 	</array>
 </dict>
 </plist>
