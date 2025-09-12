@@ -24,7 +24,7 @@ struct RewardsView: View {
                     }
                 }
             }
-            .padding(.leading, 16)
+            .padding(.leading, Spacing.md)
         }
     }
 }

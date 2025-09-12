@@ -21,7 +21,8 @@ struct HomeHeader: View {
                         endPoint: .trailing
                     )
                 )
-                .frame(width: .infinity, height: 187)
+                .frame(height: 187)
+                .frame(maxWidth: .infinity)
                 .cornerRadius(14)
             VStack {
                 ZStack(alignment: .center) {
@@ -42,8 +43,14 @@ struct HomeHeader: View {
                             .opacity(0.5)
                     }
                     HStack (spacing: 16) {
-                        HgButton(hgType: .redeem)
-                        HgButton(hgType: .history)
+                        HgButton(
+                            hgType: .redeem,
+                            action: {}
+                        )
+                        HgButton(
+                            hgType: .history,
+                            action: {}
+                        )
                     }
                 }
             }

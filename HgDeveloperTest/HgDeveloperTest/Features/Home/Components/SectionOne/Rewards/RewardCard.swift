@@ -41,9 +41,12 @@ struct RewardCard: View {
                         .font(.hgRewardTitle)
                         .foregroundStyle(.baseGray)
                     Spacer()
-                    HgButton(hgType: .noIconRedeem)
+                    HgButton(
+                        hgType: .noIconRedeem,
+                        action: {}
+                    )
                 }
-                .padding([.vertical, .horizontal], 16)
+                .padding([.vertical, .horizontal], Spacing.md)
             }
         }
         .cornerRadius(14)

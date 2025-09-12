@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HgButton: View {
     let hgType: HgButtonType
+    let action: () -> Void
     var body: some View {
         HStack {
             if (hgType.icon != nil) {
@@ -21,9 +22,10 @@ struct HgButton: View {
         .frame(width: hgType.width, height: hgType.height)
         .background(hgType.backgroundColor)
         .cornerRadius(hgType.cornerRadius)
+        .onTapGesture(perform: action)
     }
 }
 
 #Preview {
-    HgButton(hgType: .knowMore)
+    HgButton(hgType: .knowMore, action: {})
 }

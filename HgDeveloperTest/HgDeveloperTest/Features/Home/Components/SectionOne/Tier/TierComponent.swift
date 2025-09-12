@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TierComponent: View {
+    @State private var showingSheet = false
     let points: Float = 100
     var body: some View {
         VStack (spacing: 16) {
@@ -16,9 +17,14 @@ struct TierComponent: View {
                     Text("YOU'RE A LEGEND.")
                         .font(.hgTitle)
                     Spacer()
-                    HgButton(hgType: .knowMore)
+                    HgButton(
+                        hgType: .knowMore,
+                        action: {
+                            showingSheet.toggle()
+                        }
+                    )
                 }
-                HStack {
+                HStack (spacing: 3) {
                     Text("You have")
                         .font(.hgBody)
                         .foregroundStyle(.secondary)
@@ -33,10 +39,13 @@ struct TierComponent: View {
                     .font(.hgBody)
                     .foregroundStyle(.secondary)
             }
-            .padding(.horizontal, 8)
+            .padding(.horizontal, Spacing.sm)
             HgProgressView(points: 25)
         }
-        .padding(.horizontal, 32)
+        .padding(.horizontal, Spacing.xl)
+        .sheet(isPresented: $showingSheet) {
+            TiersView()
+        }
     }
 }
 

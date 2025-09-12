@@ -11,6 +11,7 @@ struct Header: View {
     let title: String
     let backButton: Bool
     let closeButton: Bool
+    let dismiss: DismissAction
     
     var body: some View {
         HStack {
@@ -24,20 +25,25 @@ struct Header: View {
             if (closeButton) {
                 Image(systemName: "xmark")
                     .resizable()
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.terracota)
                     .frame(width: 26, height: 20)
+                    .onTapGesture {dismiss()}
             }
         }
-        .frame(width: .infinity, height: 20)
+        .frame(height: 20)
+        .frame(maxWidth: .infinity)
+        .ignoresSafeArea()
     }
 }
 
 #Preview {
+    @Previewable @Environment(\.dismiss) var dismiss
     Header(
         title: "Honest People",
         backButton: true,
-        closeButton: true
+        closeButton: true,
+        dismiss: dismiss
     )
-        .padding(8)
+        .padding(Spacing.sm)
         .background(.black)
 }

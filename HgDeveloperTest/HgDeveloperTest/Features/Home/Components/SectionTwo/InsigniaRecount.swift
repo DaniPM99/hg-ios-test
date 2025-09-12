@@ -15,7 +15,7 @@ struct InsigniaRecount: View {
                 .font(.hgBody)
         }
         .frame(width: 48, height: 29)
-        .padding([.vertical, .horizontal], 16)
+        .padding([.vertical, .horizontal], Spacing.md)
         .overlay(
             Rectangle()
                 .stroke(Color.black, lineWidth: 6)

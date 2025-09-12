@@ -11,7 +11,7 @@ import SwiftUI
 struct HgDeveloperTestApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }
