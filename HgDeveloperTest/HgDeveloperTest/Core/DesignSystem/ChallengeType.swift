@@ -65,16 +65,16 @@ extension ChallengeType: ChallengeTypeProtocol {
     var body: String {
         switch self {
         case .greens:
-            return "Pide 10 Garden Bowls o Market Plates\ny te regalaremos el nº 11."
+            return String(localized: "Ask for 10 Garden Bowls or Market Plates\nand we will gift you number 11.")
         case .beans:
-            return "Pide 10 Coffees o Tés &\nte invitamos al número 11."
+            return String(localized: "Ask for 10 Coffees or tee &\nwee will invite you to number 11.")
         }
     }
     
     var body2: String {
         switch self {
         case .greens:
-            return "*(Sides no incluidos)"
+            return String(localized: "*(Sides not included)")
         case .beans:
             return ""
         }

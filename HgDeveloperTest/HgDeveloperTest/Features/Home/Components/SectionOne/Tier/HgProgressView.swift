@@ -25,6 +25,8 @@ struct HgProgressView: View {
     private let checkPointHeight: CGFloat = 30
     private let tierCircleSize: CGFloat = 19
     private let tierCircleBorder: CGFloat = 9
+    private let checkPointYOffsize: CGFloat = -13
+    private let checkPointTextsXOffsize: CGFloat = 25
     
     
     var body: some View {
@@ -55,7 +57,7 @@ struct HgProgressView: View {
     func tierCheckPoint(_ title: String, _ startLevel: Int, _ lastLevel: Int) -> some View {
         VStack (spacing: Spacing.sm) {
             tierCircle(isActive: Int(viewModel.points) >= startLevel)
-                .offset(y: -10)
+                .offset(y: checkPointYOffsize)
             Text(title)
                 .font(.hgProgressView)
                 .foregroundStyle(.baseGray)
@@ -70,15 +72,15 @@ struct HgProgressView: View {
         HStack {
             VStack (spacing: Spacing.sm) {
                 tierCircle(isActive: Int(viewModel.points) >= 100)
-                    .offset(y: -10)
+                    .offset(y: checkPointYOffsize)
                 Text("Legend 2025")
                     .font(.hgProgressView)
                     .foregroundStyle(.black)
-                    .offset(x: 25)
+                    .offset(x: checkPointTextsXOffsize)
                 Text("01/01/2025")
                     .font(.hgProgressView)
                     .foregroundStyle(.disabled)
-                    .offset(x: 25)
+                    .offset(x: checkPointTextsXOffsize)
             }
             .frame(width: checkPointWidth, height: checkPointHeight)
             .offset(x: -35)
@@ -87,15 +89,15 @@ struct HgProgressView: View {
             
             VStack (spacing: Spacing.sm) {
                 tierCircle(isActive: Int(viewModel.points) >= 200)
-                    .offset(y: -10)
+                    .offset(y: checkPointYOffsize)
                 Text("Legend 2026")
                     .font(.hgProgressView)
                     .foregroundStyle(.baseGray)
-                    .offset(x: -25)
+                    .offset(x: checkPointTextsXOffsize * -1)
                 Text("01/01/2026")
                     .font(.hgProgressView)
                     .foregroundStyle(.disabled)
-                    .offset(x: -25)
+                    .offset(x: checkPointTextsXOffsize * -1)
             }
             .frame(width: checkPointWidth, height: checkPointHeight)
             .offset(x: 35)

@@ -58,13 +58,13 @@ struct TiersView: View {
             .padding(Spacing.xl)
         }
         .sheetOrFullScreen(isPresented: $viewModel.showingSheet) {
-            let tiersLegendViewModel = TiersLegendViewModel(tier: viewModel.tier, expireDate: viewModel.expireDate)
+            let tiersLegendViewModel = TiersLegendViewModel(tier: viewModel.tier, expireDate: viewModel.expireDate, points: viewModel.points)
             TiersLegendView(viewModel: tiersLegendViewModel)
         }
     }
 }
 
 #Preview {
-    var viewModel = TiersViewModel(tier: .silver, expireDate: "01/01/2026")
+    var viewModel = TiersViewModel(tier: .silver, expireDate: "01/01/2026", points: 120)
     TiersView(viewModel: viewModel)
 }

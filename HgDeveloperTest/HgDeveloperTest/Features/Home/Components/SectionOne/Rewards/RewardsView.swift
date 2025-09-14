@@ -11,9 +11,9 @@ struct RewardsView: View {
     var body: some View {
         VStack (alignment: .leading, spacing: Spacing.lg) {
                 VStack (alignment: .leading,spacing: Spacing.xs) {
-                    Text("REWARDS.")
+                    Text(String(localized: "REWARDS."))
                         .font(.hgTitle)
-                    Text("These are your rewards this month.")
+                    Text(String(localized: "These are your rewards this month."))
                         .font(.hgBody)
                         .foregroundStyle(.secondary)
                 }

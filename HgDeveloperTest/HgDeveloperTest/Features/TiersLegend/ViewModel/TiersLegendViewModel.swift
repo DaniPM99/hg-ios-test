@@ -10,6 +10,7 @@ import Foundation
 final class TiersLegendViewModel: ObservableObject {
     @Published var tier: TagType
     @Published var expireDate: String
+    @Published var points: Int
     
     var tierBenefit : BenefitsTier {
         switch tier {
@@ -24,9 +25,10 @@ final class TiersLegendViewModel: ObservableObject {
         }
     }
     
-    init(tier: TagType, expireDate: String) {
+    init(tier: TagType, expireDate: String, points: Int) {
         self.tier = tier
         self.expireDate = expireDate
+        self.points = points
     }
     
     func matchTierWithBenefit(benefit: BenefitsTier) -> TagType {

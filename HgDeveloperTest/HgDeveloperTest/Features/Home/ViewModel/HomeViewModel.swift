@@ -84,7 +84,18 @@ final class HomeViewModel: ObservableObject {
         }
     }
     
-    func setPoints(_ newPoints: Float) {
-        self.points = newPoints
+    func operatePoints(operation: String) {
+        if operation == "-" {
+            if self.points > 10 {
+                self.points -= 10
+            }
+        } else {
+            if self.points < 190 {
+                self.points += 10
+            } else if self.points >= 190 || self.points < 200 {
+                let difference = 200 - self.points
+                self.points += difference
+            }
+        }
     }
 }

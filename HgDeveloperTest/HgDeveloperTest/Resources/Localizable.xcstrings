@@ -1,0 +1,761 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "· Joined Sep. 2021" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "· Se unió el Sep. 2021"
+          }
+        }
+      }
+    },
+    "*(Sides not included)" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "*(Sides no incluidos)"
+          }
+        }
+      }
+    },
+    "%lld" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld"
+                }
+              }
+            }
+          }
+        },
+        "es" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld - %lld" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld - %2$lld"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%1$lld - %2$lld"
+          }
+        }
+      }
+    },
+    "%lld / 10" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld / 10"
+          }
+        }
+      }
+    },
+    "%lld of 100 Green stamps" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld de 100 insignias verdes"
+          }
+        }
+      }
+    },
+    "1 chance to win an invitation to our\nbimonthly wellness exlcusive events." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 oportunidad de ganar una invitación\nbimensual a eventos exclusivos\nwellness."
+          }
+        }
+      }
+    },
+    "1 chance to win an invitation to our\nyearly masterclass with chef Ben." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 oportunidad de ganar una invitación a nuestra\nmasterclass con el chef Ben."
+          }
+        }
+      }
+    },
+    "1 chance to win one invitation to our\nrestaurant opening parties." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 oportunidad de ganar una invitación a nuestras\nfiestas de apertura de restaurantes."
+          }
+        }
+      }
+    },
+    "01/01/2025" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "01/01/2025"
+          }
+        }
+      }
+    },
+    "01/01/2026" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "01/01/2026"
+          }
+        }
+      }
+    },
+    "01/01/2026 to keep your level, Legend." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "01/01/2026 para mantener tu nivel, Leyenda"
+          }
+        }
+      }
+    },
+    "2 chances to win an invitation to our\nbimonthly wellness exlcusive events." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 oportunidades de ganar una invitación\nbimensual a eventos exclusivos\nwellness."
+          }
+        }
+      }
+    },
+    "2 chances to win an invitation to our\nyearly masterclass with chef Ben." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 oportunidades de ganar una invitación a nuestra\nmasterclass con el chef Ben."
+          }
+        }
+      }
+    },
+    "2 chances to win one invitation to our\nrestaurant opening parties." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 oportunidad de ganar una invitación a nuestras\nfiestas de apertura de restaurantes."
+          }
+        }
+      }
+    },
+    "5,40 €" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5,40 €"
+          }
+        }
+      }
+    },
+    "5€ credit on your birthday week." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "5€ de crédito en tu semana de cumpleaños."
+          }
+        }
+      }
+    },
+    "10€ credit on your birthday week." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "10€ de crédito en tu semana de cumpleaños."
+          }
+        }
+      }
+    },
+    "15€ credit on your birthday week." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "15€ de crédito en tu semana de cumpleaños."
+          }
+        }
+      }
+    },
+    "20-20 GREEN STAMPS COLLECTED" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "20-20 INSIGNIAS VERDES RECOLECTADAS"
+          }
+        }
+      }
+    },
+    "50-50 GREEN STAMPS COLLECTED" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "50-50 INSIGNIAS VERDES RECOLECTADAS"
+          }
+        }
+      }
+    },
+    "100+" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "100+"
+          }
+        }
+      }
+    },
+    "100+ GREEN STAMPS COLLECTED" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "+100 INSIGNIAS VERDES RECOLECTADAS"
+          }
+        }
+      }
+    },
+    "Ask for 10 Coffees or tee &\nwee will invite you to number 11." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pide 10 Cafés of tees i\nte invitamos el numero 11."
+          }
+        }
+      }
+    },
+    "Ask for 10 Garden Bowls or Market Plates\nand we will gift you number 11." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pide 10 Garden Bowls of Market Plates i\nte regalamos el numero 11."
+          }
+        }
+      }
+    },
+    "Birthday\nGift Card\n20€" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "20€\nTicket Regalo\nCumpleañero"
+          }
+        }
+      }
+    },
+    "Champ" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Champ"
+          }
+        }
+      }
+    },
+    "CHAMP\nUNLOCKED." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "CHAMP\nUNLOCKED."
+          }
+        }
+      }
+    },
+    "Get" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recibe"
+          }
+        }
+      }
+    },
+    "Get a\nFree\nJuice" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recibe un\nZumo\nGratis"
+          }
+        }
+      }
+    },
+    "green stamps more before" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "insignias verdes mas antes"
+          }
+        }
+      }
+    },
+    "green stamps." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "insignias verdes."
+          }
+        }
+      }
+    },
+    "Greens challenge: buy 10 garden bowls\nor market plates and get one free." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Greens challenge: Compra 10 garden bowls\no market plates i recibe uno gratis"
+          }
+        }
+      }
+    },
+    "History" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Historial"
+          }
+        }
+      }
+    },
+    "HONEST\nPEOPLE." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HONEST\nPEOPLE."
+          }
+        }
+      }
+    },
+    "Honest People" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hones People"
+          }
+        }
+      }
+    },
+    "Know +" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descubre +"
+          }
+        }
+      }
+    },
+    "Legend" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legend"
+          }
+        }
+      }
+    },
+    "LEGEND\nUNLOCKED." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LEGEND\nUNLOCKED."
+          }
+        }
+      }
+    },
+    "Legend 2025" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legend 2025"
+          }
+        }
+      }
+    },
+    "Legend 2026" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legend 2026"
+          }
+        }
+      }
+    },
+    "One free sweet corner item of the\nmonth." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un plato del mes sweet corner gratis ."
+          }
+        }
+      }
+    },
+    "Redeem" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canjea"
+          }
+        }
+      }
+    },
+    "Refer a friend and get 3€ when they\norder for the first time using our app." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invita a un amigo i recibe 3€ cuando ellos\npidan la primera vez usando la app."
+          }
+        }
+      }
+    },
+    "Refer a friend and get 4€ when they\norder for the first time using our app." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invita a un amigo i recibe 4€ cuando ellos\npidan la primera vez usando la app."
+          }
+        }
+      }
+    },
+    "Refer a friend and get 6€ when they\norder for the first time using our app." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invita a un amigo i recibe 6€ cuando ellos\npidan la primera vez usando la app."
+          }
+        }
+      }
+    },
+    "Refer a friend and get 9€ when they\norder for the first time using our app." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invita a un amigo i recibe 9€ cuando ellos\npidan la primera vez usando la app."
+          }
+        }
+      }
+    },
+    "REWARDS." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "REWARDS."
+          }
+        }
+      }
+    },
+    "Say hello to our new loyalty\nprogram; Honest People." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saluda a nuestro programa de lealtad; Honest People."
+          }
+        }
+      }
+    },
+    "Star" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Star"
+          }
+        }
+      }
+    },
+    "STAR\nUNLOCKED." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "STAR\nUNLOCKED."
+          }
+        }
+      }
+    },
+    "Starter" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starter"
+          }
+        }
+      }
+    },
+    "These are your rewards this month." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estos son tus premios este mes."
+          }
+        }
+      }
+    },
+    "Tus sellos caducan el %@.\nTu tier se resetea el %@." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your insignias expire on %1$@.\nYour tier will be reset on %2$@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus insignias expiran el %1$@.\nTu nivel sera reseteado el %2$@."
+          }
+        }
+      }
+    },
+    "UNLOCKS AT 20 GREEN STAMPS" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DESBLOQUEADO A 20 INSIGNIAS VERDES"
+          }
+        }
+      }
+    },
+    "UNLOCKS AT 50 GREEN STAMPS" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DESBLOQUEADO A 50 INSIGNIAS VERDES"
+          }
+        }
+      }
+    },
+    "UNLOCKS AT 100 GREEN STAMPS" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DESBLOQUEADO A 100 INSIGNIAS VERDES"
+          }
+        }
+      }
+    },
+    "Ver beneficios" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See benefits"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver beneficios"
+          }
+        }
+      }
+    },
+    "WELCOME\nSTARTER." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "WELCOME\nSTARTER."
+          }
+        }
+      }
+    },
+    "XX-20 GREEN STAMPS COLLECTED" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "XX-20 INSIGNIAS VERDES RECOLECTADAS"
+          }
+        }
+      }
+    },
+    "XX-50 GREEN STAMPS COLLECTED" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "XX-50 INSIGNIAS VERDES RECOLECTADAS"
+          }
+        }
+      }
+    },
+    "XX-100 GREEN STAMPS COLLECTED" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "XX-100 INSIGNIAS VERDES RECOLECTADAS"
+          }
+        }
+      }
+    },
+    "You have" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tienes"
+          }
+        }
+      }
+    },
+    "YOU HAVE %lld GREEN STAMPS · VALID UNTIL %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "YOU HAVE %1$lld GREEN STAMPS · VALID UNTIL %2$@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TIENES %1$lld INSIGNIAS VERDES · VALIDAS HASTA %2$@"
+          }
+        }
+      }
+    },
+    "YOU'RE A %@." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "TU ERES %@."
+          }
+        }
+      }
+    },
+    "You’re a real food addict and\ndeserve to be crowned a Star." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eres un adicto al real food i\nmereces ser coronado como Star."
+          }
+        }
+      }
+    },
+    "You’re eating Honest Greens morning,\nevening, and night. You’re legendary." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estas comiendo Honest Greens mañana,\ntarde, i noche. Eres legendario."
+          }
+        }
+      }
+    },
+    "You’re real honest people!" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu eres una persona muy honesta"
+          }
+        }
+      }
+    },
+    "You’ve gone all in on real food.\nYou’re now a Champ." : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has hecho all in en real food.\nAhora eres un Champ."
+          }
+        }
+      }
+    },
+    "Your Tier" : {
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu nivel"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

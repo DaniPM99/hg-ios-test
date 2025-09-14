@@ -7,34 +7,34 @@
 
 import SwiftUI
 
-let benefitBronzeOne = "Greens challenge: buy 10 garden bowls\nor market plates and get one free."
-let benefitBronzeTwo = "Refer a friend and get 3€ when they\norder for the first time using our app."
+let benefitBronzeOne = String(localized: "Greens challenge: buy 10 garden bowls\nor market plates and get one free.")
+let benefitBronzeTwo = String(localized: "Refer a friend and get 3€ when they\norder for the first time using our app.")
 
-let benefitSilverOne = "Greens challenge: buy 10 garden bowls\nor market plates and get one free."
-let benefitSilverTwo = "Refer a friend and get 4€ when they\norder for the first time using our app."
-let benefitSilverThree = "5€ credit on your birthday week."
-let benefitSilverFour = "One free sweet corner item of the\nmonth."
+let benefitSilverOne = String(localized: "Greens challenge: buy 10 garden bowls\nor market plates and get one free.")
+let benefitSilverTwo = String(localized: "Refer a friend and get 4€ when they\norder for the first time using our app.")
+let benefitSilverThree = String(localized: "5€ credit on your birthday week.")
+let benefitSilverFour = String(localized: "One free sweet corner item of the\nmonth.")
 
-let benefitGoldOne = "Greens challenge: buy 10 garden bowls\nor market plates and get one free."
-let benefitGoldTwo = "Refer a friend and get 6€ when they\norder for the first time using our app."
-let benefitGoldThree = "10€ credit on your birthday week."
-let benefitGoldFour = "One free sweet corner item of the\nmonth."
-let benefitGoldFive = "1 chance to win one invitation to our\nrestaurant opening parties."
-let benefitGoldSix = "1 chance to win an invitation to our\nyearly masterclass with chef Ben."
-let benefitGoldSeven = "1 chance to win an invitation to our\nbimonthly wellness exlcusive events."
+let benefitGoldOne = String(localized: "Greens challenge: buy 10 garden bowls\nor market plates and get one free.")
+let benefitGoldTwo = String(localized: "Refer a friend and get 6€ when they\norder for the first time using our app.")
+let benefitGoldThree = String(localized: "10€ credit on your birthday week.")
+let benefitGoldFour = String(localized: "One free sweet corner item of the\nmonth.")
+let benefitGoldFive = String(localized: "1 chance to win one invitation to our\nrestaurant opening parties.")
+let benefitGoldSix = String(localized: "1 chance to win an invitation to our\nyearly masterclass with chef Ben.")
+let benefitGoldSeven = String(localized: "1 chance to win an invitation to our\nbimonthly wellness exlcusive events.")
 
-let benefitsEmeralOne = "Greens challenge: buy 10 garden bowls\nor market plates and get one free."
-let benefitsEmeralTwo = "Refer a friend and get 9€ when they\norder for the first time using our app."
-let benefitsEmeralThree = "15€ credit on your birthday week."
-let benefitsEmeralFour = "One free sweet corner item of the\nmonth."
-let benefitsEmeralFive = "2 chances to win one invitation to our\nrestaurant opening parties."
-let benefitsEmeralSix = "2 chances to win an invitation to our\nyearly masterclass with chef Ben."
-let benefitsEmeralSeven = "2 chances to win an invitation to our\nbimonthly wellness exlcusive events."
+let benefitsEmeralOne = String(localized: "Greens challenge: buy 10 garden bowls\nor market plates and get one free.")
+let benefitsEmeralTwo = String(localized: "Refer a friend and get 9€ when they\norder for the first time using our app.")
+let benefitsEmeralThree = String(localized: "15€ credit on your birthday week.")
+let benefitsEmeralFour = String(localized: "One free sweet corner item of the\nmonth.")
+let benefitsEmeralFive = String(localized: "2 chances to win one invitation to our\nrestaurant opening parties.")
+let benefitsEmeralSix = String(localized: "2 chances to win an invitation to our\nyearly masterclass with chef Ben.")
+let benefitsEmeralSeven = String(localized: "2 chances to win an invitation to our\nbimonthly wellness exlcusive events.")
 
 protocol BenefitsProvider {
     var tag: String { get }
     var title: String { get }
-    var body: String { get }
+    func body(isActive: Bool, isPreviousFromActive: Bool) -> String
     var color: Color { get }
     var benefits: [String] { get }
 }
@@ -47,6 +47,19 @@ enum BenefitsTier: Int, CaseIterable {
 }
 
 extension BenefitsTier: BenefitsProvider {
+    func body(isActive: Bool, isPreviousFromActive: Bool) -> String {
+        switch self {
+        case .bronze:
+            return isActive ? String(localized: "XX-20 GREEN STAMPS COLLECTED") : isPreviousFromActive ? String(localized: "20-20 GREEN STAMPS COLLECTED") : ""
+        case .silver:
+            return isActive ? String(localized: "XX-50 GREEN STAMPS COLLECTED") : isPreviousFromActive ? String(localized: "50-50 GREEN STAMPS COLLECTED") : String(localized: "UNLOCKS AT 20 GREEN STAMPS")
+        case .gold:
+            return isActive ? String(localized: "XX-100 GREEN STAMPS COLLECTED") : isPreviousFromActive ? String(localized: "UNLOCKS AT 50 GREEN STAMPS") : String(localized: "UNLOCKS AT 50 GREEN STAMPS")
+        case .emerald:
+            return isActive ? String(localized: "100+ GREEN STAMPS COLLECTED") : isPreviousFromActive ? "" : String(localized: "UNLOCKS AT 100 GREEN STAMPS")
+        }
+    }
+    
     var tag: String {
         switch self {
         case .bronze:
@@ -70,19 +83,6 @@ extension BenefitsTier: BenefitsProvider {
             return "STAR."
         case .emerald:
             return "LEGEND."
-        }
-    }
-    
-    var body: String {
-        switch self {
-        case .bronze:
-            return "20-20 GREEN STAMPS COLLECTED"
-        case .silver:
-            return "XX-50 GREEN STAMPS COLLECTED"
-        case .gold:
-            return "UNLOCKS AT 50 GREEN STAMPS"
-        case .emerald:
-            return "UNLOCKS AT 100 GREEN STAMPS"
         }
     }
     

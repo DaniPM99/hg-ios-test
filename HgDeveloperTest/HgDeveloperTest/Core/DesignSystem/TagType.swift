@@ -28,26 +28,26 @@ extension TagType: TagStyleProtocol {
     var tierSubtitle: String {
         switch self {
         case .bronze:
-            "Say hello to our new loyalty\nprogram; Honest People."
+            String(localized: "Say hello to our new loyalty\nprogram; Honest People.")
         case .silver:
-            "You’ve gone all in on real food.\nYou’re now a Champ."
+            String(localized: "You’ve gone all in on real food.\nYou’re now a Champ.")
         case .gold:
-            "You’re a real food addict and\ndeserve to be crowned a Star."
+            String(localized: "You’re a real food addict and\ndeserve to be crowned a Star.")
         case .emerald:
-            "You’re eating Honest Greens morning,\nevening, and night. You’re legendary."
+            String(localized: "You’re eating Honest Greens morning,\nevening, and night. You’re legendary.")
         }
     }
     
     var tierTitle: String {
         switch self {
         case .bronze:
-            "WELCOME\nSTARTER."
+            String(localized: "WELCOME\nSTARTER.")
         case .silver:
-            "CHAMP\nUNLOCKED."
+            String(localized: "CHAMP\nUNLOCKED.")
         case .gold:
-            "STAR\nUNLOCKED."
+            String(localized: "STAR\nUNLOCKED.")
         case .emerald:
-            "LEGEND\nUNLOCKED."
+            String(localized: "LEGEND\nUNLOCKED.")
         }
     }
     
@@ -92,17 +92,17 @@ extension TagType: TagStyleProtocol {
     
     func title(tierActive: Bool) -> String {
         if tierActive {
-            return "Your Tier"
+            return String(localized: "Your Tier")
         } else {
             switch self {
             case .bronze:
-                return "Starter"
+                return String(localized: "Starter")
             case .silver:
-                return "Champ"
+                return String(localized: "Champ")
             case .gold:
-                return "Star"
+                return String(localized: "Star")
             case .emerald:
-                return "Legend"
+                return String(localized: "Legend")
             }
         }
     }

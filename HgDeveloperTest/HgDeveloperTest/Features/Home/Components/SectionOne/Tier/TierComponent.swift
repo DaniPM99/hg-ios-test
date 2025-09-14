@@ -79,7 +79,8 @@ struct TierComponent: View {
         .sheetOrFullScreen(isPresented: $showingSheet) {
             let tiersVM = TiersViewModel(
                 tier: viewModel.tier,
-                expireDate: viewModel.dateFormatter.string(from: viewModel.expireDate)
+                expireDate: viewModel.dateFormatter.string(from: viewModel.expireDate),
+                points: Int(viewModel.points)
             )
             TiersView(viewModel: tiersVM)
         }

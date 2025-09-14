@@ -12,7 +12,7 @@ struct RewardCard: View {
     private let rewardBackgroundWidth: CGFloat = 109
     private let rewardBackgroundHeight: CGFloat = 140
     private let profileContainerOpacity: Double = 0.5
-    private let SecondaryRewardBackgroundWidth: CGFloat = 131
+    private let SecondaryRewardBackgroundWidth: CGFloat = 140
     private let SecondaryRewardBackgroundHeight: CGFloat = 140
     
     var body: some View {

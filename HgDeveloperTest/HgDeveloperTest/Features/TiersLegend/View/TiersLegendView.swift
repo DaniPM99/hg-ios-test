@@ -17,7 +17,7 @@ struct TiersLegendView: View {
                 VStack(spacing: Spacing.sm) {
                     Text("HONEST\nPEOPLE.")
                         .font(.hgLegendTitle)
-                    Text("YOU HAVE XX GREEN STAMPS · VALID UNTIL 17/09/2023")
+                    Text("YOU HAVE \(viewModel.points) GREEN STAMPS · VALID UNTIL \(viewModel.expireDate)")
                         .font(.hgTierLegendSubtitle)
                         .foregroundStyle(.secondary)
                 }
@@ -50,6 +50,6 @@ struct TiersLegendView: View {
 }
 
 #Preview {
-    let viewModel = TiersLegendViewModel(tier: .gold, expireDate: "01/01/2026")
+    let viewModel = TiersLegendViewModel(tier: .bronze, expireDate: "01/01/2026", points: 120)
     TiersLegendView(viewModel: viewModel)
 }

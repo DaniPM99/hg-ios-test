@@ -37,10 +37,15 @@ struct HomeHeader: View {
                         Text("5,40 €")
                             .opacity(subtitleTextOpacity)
                             .bold()
-                        Text("· Joined Sep. 2021")
+                        Text(String(localized: "· Joined Sep. 2021"))
                             .opacity(subtitleTextOpacity)
                     }
                     HStack (spacing: Spacing.md) {
+                        Button(action: {
+                            viewModel.operatePoints(operation: "+")
+                        }) {
+                            Image(systemName: "plus")
+                        }
                         HgButton(
                             hgType: .redeem,
                             action: {}
@@ -49,6 +54,11 @@ struct HomeHeader: View {
                             hgType: .history,
                             action: {}
                         )
+                        Button(action: {
+                            viewModel.operatePoints(operation: "-")
+                        }) {
+                            Image(systemName: "minus")
+                        }
                     }
                 }
                 .padding(.top, Spacing.xxxl)

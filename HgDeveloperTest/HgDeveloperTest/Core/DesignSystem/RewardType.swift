@@ -61,9 +61,9 @@ extension RewardType: RewardTypeProtocol {
     var title : String {
         switch self {
         case .birthday:
-            return "Birthday\nGift Card\n20€"
+            return String(localized: "Birthday\nGift Card\n20€")
         case .juice:
-            return "Get a\nFree\nJuice"
+            return String(localized: "Get a\nFree\nJuice")
         }
     }
     

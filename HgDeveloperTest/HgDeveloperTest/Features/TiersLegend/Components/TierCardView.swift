@@ -23,14 +23,16 @@ struct TierCardView: View {
                     Text(benefits.title)
                         .font(.hgTitle)
                         .foregroundColor(.black)
-                    Text(benefits.body)
+                    Text(benefits.body(
+                        isActive: actualBenefit.rawValue == benefits.rawValue,
+                        isPreviousFromActive: actualBenefit.rawValue >= benefits.rawValue
+                    ))
                         .font(.hgTierLegendSubtitle)
                         .foregroundColor(.secondary)
                 }
             }
 
             
-            // Lista de beneficios
             VStack(alignment: .leading, spacing: Spacing.md) {
                 ForEach(benefits.benefits, id: \.self) { item in
                     HStack(spacing: Spacing.sm) {
@@ -49,9 +51,13 @@ struct TierCardView: View {
         .background(
             RoundedRectangle(cornerRadius: CornerRadius.lg)
                 .fill(Color.white)
-                .border(actualBenefit.rawValue >= benefits.rawValue ? benefits.color : .disabled, width: 1)
-                .cornerRadius(CornerRadius.md)
-                .shadow(color: actualBenefit.rawValue >= benefits.rawValue ? benefits.color : .disabled, radius: 40, x: 0, y: 2)
+                .overlay(
+                    RoundedRectangle(cornerRadius: CornerRadius.lg)
+                        .stroke(
+                            actualBenefit.rawValue == benefits.rawValue ? benefits.color : .clear,
+                            lineWidth: 2.5
+                        )
+                )
         )
         .overlay(alignment: .topTrailing) {
             TierTag(

@@ -57,7 +57,8 @@ extension HgButtonType: HgButtonProtocol {
         case .redeem, .history:
             return 133
         case .knowMore:
-            return 69
+            //return 69
+            return 75
         case .noIconRedeem:
             return 76
         }
@@ -75,11 +76,11 @@ extension HgButtonType: HgButtonProtocol {
     var title: String {
         switch self {
         case .redeem, .noIconRedeem:
-            return "Redeem"
+            return String(localized: "Redeem")
         case .history:
-            return "History"
+            return String(localized: "History")
         case .knowMore:
-            return "Know +"
+            return String(localized: "Know +")
         }
     }
     
