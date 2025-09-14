@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct AvatarView: View {
+    private let avatarSize: CGFloat = 84
+    private let avatarBorder: CGFloat = 4
     var body: some View {
         Image("profileImage")
             .resizable()
             .scaledToFill()
-            .frame(width: 84, height: 84)
+            .frame(width: avatarSize, height: avatarSize)
             .clipShape(Circle())
             .overlay(
-                Circle().stroke(Color.white, lineWidth: 4)
+                Circle().stroke(Color.white, lineWidth: avatarBorder)
             )
     }
 }

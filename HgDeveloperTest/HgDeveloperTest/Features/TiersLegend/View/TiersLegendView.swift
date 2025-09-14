@@ -13,15 +13,8 @@ struct TiersLegendView: View {
     
     var body: some View {
         ScrollView {
-            Header(
-                title: "",
-                backButton: false,
-                closeButton: true,
-                dismiss: dismiss
-            )
-            .padding(.horizontal, 36)
-            VStack(spacing: 32) {
-                VStack(spacing: 8) {
+            VStack(spacing: Spacing.xl) {
+                VStack(spacing: Spacing.sm) {
                     Text("HONEST\nPEOPLE.")
                         .font(.hgLegendTitle)
                     Text("YOU HAVE XX GREEN STAMPS · VALID UNTIL 17/09/2023")
@@ -37,14 +30,22 @@ struct TiersLegendView: View {
                 }
                 HomeSectionThree(expireDate: viewModel.expireDate)
             }
-            .padding(.horizontal, 36)
+            .padding(.horizontal, Spacing.xl)
         }
         .padding(.vertical, Spacing.xl)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
+        .safeAreaInset(edge: .top) {
+            Header(
+                title: "",
+                backButton: false,
+                closeButton: true,
+                dismiss: dismiss
+            )
+        }
         .background(
             Color.background
         )
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .ignoresSafeArea()
     }
 }
 

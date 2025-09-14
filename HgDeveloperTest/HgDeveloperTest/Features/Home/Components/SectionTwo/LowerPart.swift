@@ -10,6 +10,9 @@ import SwiftUI
 struct LowerPart: View {
     let insignias: Int
     let challengeType: ChallengeType
+    private let lowerPartSize: CGFloat = 58
+    private let lowerPartHeight: CGFloat = 168
+    private let insigniasIconLimit: Int = 10
     
     var body: some View {
         VStack {
@@ -18,14 +21,14 @@ struct LowerPart: View {
                     if (index <= insignias) {
                         challengeType.iconInsignia
                             .resizable()
-                            .frame(width: 58, height: 58)
+                            .frame(width: lowerPartSize, height: lowerPartSize)
                             .rotationEffect(.degrees(Double(Int.random(in: (0..<361)))))
                     } else {
                         ZStack {
                             Image("missingStamp")
                             Text("\(index)")
                         }
-                        .frame(width: 58, height: 58)
+                        .frame(width: lowerPartSize, height: lowerPartSize)
                     }
                 }
             }
@@ -34,23 +37,23 @@ struct LowerPart: View {
                     if (index <= insignias) {
                         challengeType.iconInsignia
                             .resizable()
-                            .frame(width: 58, height: 58)
+                            .frame(width: lowerPartSize, height: lowerPartSize)
                             .rotationEffect(.degrees(Double(Int.random(in: (0..<361)))))
                     } else {
                         ZStack {
                             Image("missingStamp")
-                            if index < 10 {
+                            if index < insigniasIconLimit {
                                 Text("\(index)")
                             } else {
                                 Image("gift")
                             }
                         }
-                        .frame(width: 58, height: 58)
+                        .frame(width: lowerPartSize, height: lowerPartSize)
                     }
                 }
             }
         }
-        .frame(height: 168)
+        .frame(height: lowerPartHeight)
         .frame(maxWidth: .infinity)
         .background(.white)
     }

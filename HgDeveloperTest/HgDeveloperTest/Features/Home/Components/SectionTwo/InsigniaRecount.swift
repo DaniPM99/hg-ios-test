@@ -9,18 +9,20 @@ import SwiftUI
 
 struct InsigniaRecount: View {
     let insignias: Int
+    private let InsigniaRecountWidth: CGFloat = 48
+    private let InsigniaRecountHeight: CGFloat = 29
     var body: some View {
         HStack {
             Text("\(insignias) / 10")
                 .font(.hgBody)
         }
-        .frame(width: 48, height: 29)
+        .frame(width: InsigniaRecountWidth, height: InsigniaRecountHeight)
         .padding([.vertical, .horizontal], Spacing.md)
         .overlay(
             Rectangle()
                 .stroke(Color.black, lineWidth: 6)
-                .cornerRadius(6)
-                .frame(width: 48, height: 29)
+                .cornerRadius(CornerRadius.xxs)
+                .frame(width: InsigniaRecountWidth, height: InsigniaRecountHeight)
         )
         .opacity(0.2)
     }

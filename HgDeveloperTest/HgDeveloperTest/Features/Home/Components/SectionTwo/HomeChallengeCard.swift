@@ -17,17 +17,18 @@ struct HomeChallengeCard: View {
         }
     }
     @EnvironmentObject var viewModel: HomeViewModel
+    private let homeChallengeCardHeight: CGFloat = 335
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            VStack(spacing:0) {
+            VStack(spacing: Spacing.none) {
                 UpperPart(challengeType: challengeType)
                 LowerPart(insignias: insignias, challengeType: challengeType)
             }
             InsigniaRecount(insignias: insignias)
         }
-        .cornerRadius(14)
-        .frame(height: 335)
+        .cornerRadius(CornerRadius.md)
+        .frame(height: homeChallengeCardHeight)
         .frame(maxWidth: .infinity)
     }
 }

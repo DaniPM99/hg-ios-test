@@ -9,13 +9,18 @@ import SwiftUI
 
 struct RewardCard: View {
     let rewardType: RewardType
+    private let rewardBackgroundWidth: CGFloat = 109
+    private let rewardBackgroundHeight: CGFloat = 140
+    private let profileContainerOpacity: Double = 0.5
+    private let SecondaryRewardBackgroundWidth: CGFloat = 131
+    private let SecondaryRewardBackgroundHeight: CGFloat = 140
     
     var body: some View {
-        HStack(spacing: 0) {
+        HStack(spacing: Spacing.none) {
             ZStack {
                 Rectangle()
                     .fill (rewardType.color)
-                    .frame(width: 109, height: 140)
+                    .frame(width: rewardBackgroundWidth, height: rewardBackgroundHeight)
                     .layoutPriority(1)
                 rewardType.icon
                     .resizable()
@@ -28,13 +33,13 @@ struct RewardCard: View {
                         LinearGradient(
                             gradient: Gradient(colors: [
                                 .background,
-                                .profileContainer1.opacity(0.5)
+                                .profileContainer1.opacity(profileContainerOpacity)
                             ]),
                             startPoint: .leading,
                             endPoint: .trailing
                         )
                     )
-                    .frame(width: 131, height: 140)
+                    .frame(width: SecondaryRewardBackgroundWidth, height: SecondaryRewardBackgroundHeight)
                     .layoutPriority(1)
                 VStack (alignment: .leading) {
                     Text(rewardType.title)
@@ -49,7 +54,7 @@ struct RewardCard: View {
                 .padding([.vertical, .horizontal], Spacing.md)
             }
         }
-        .cornerRadius(14)
+        .cornerRadius(CornerRadius.md)
     }
 }
 

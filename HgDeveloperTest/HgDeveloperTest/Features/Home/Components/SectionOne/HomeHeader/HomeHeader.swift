@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeHeader: View {
     @EnvironmentObject var viewModel: HomeViewModel
+    private let backgroundHeight: CGFloat = 187
+    private let subtitleTextOpacity: Double = 0.5
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -23,22 +25,22 @@ struct HomeHeader: View {
                         endPoint: .trailing
                     )
                 )
-                .frame(height: 187)
+                .frame(height: backgroundHeight)
                 .frame(maxWidth: .infinity)
-                .cornerRadius(14)
-                VStack (spacing: 16) {
+                .cornerRadius(CornerRadius.md)
+            VStack (spacing: Spacing.md) {
                     Text(viewModel.userName)
                         .font(.hgTitle)
                     HStack {
                         Image(systemName: "gift")
-                            .opacity(0.5)
+                            .opacity(subtitleTextOpacity)
                         Text("5,40 €")
-                            .opacity(0.5)
+                            .opacity(subtitleTextOpacity)
                             .bold()
                         Text("· Joined Sep. 2021")
-                            .opacity(0.5)
+                            .opacity(subtitleTextOpacity)
                     }
-                    HStack (spacing: 16) {
+                    HStack (spacing: Spacing.md) {
                         HgButton(
                             hgType: .redeem,
                             action: {}
@@ -49,7 +51,7 @@ struct HomeHeader: View {
                         )
                     }
                 }
-                .padding(.top, 55)
+                .padding(.top, Spacing.xxxl)
         }
     }
 }

@@ -12,6 +12,9 @@ import AVFoundation
 struct TiersView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var viewModel: TiersViewModel
+    private let headerXOffset: CGFloat = -150
+    private let headerYOffset: CGFloat = -30
+    private let videoPlayerOffset: CGFloat = -5
     
     var body: some View {
         ZStack {
@@ -21,7 +24,7 @@ struct TiersView: View {
                 }
                 .scaledToFill()
                 .ignoresSafeArea()
-                .offset(x:-5)
+                .offset(x:videoPlayerOffset)
             
             VStack {
                 Header(
@@ -30,9 +33,9 @@ struct TiersView: View {
                     closeButton: true,
                     dismiss: dismiss
                 )
-                .offset(x: -180, y: -10)
+                .offset(x: headerXOffset, y: headerYOffset)
                 Spacer()
-                VStack (spacing: 32) {
+                VStack (spacing: Spacing.xl) {
                     TierTag(
                         tagStyle: viewModel.tier,
                         tierActive: false,
@@ -54,7 +57,7 @@ struct TiersView: View {
             }
             .padding(Spacing.xl)
         }
-        .sheet(isPresented: $viewModel.showingSheet) {
+        .sheetOrFullScreen(isPresented: $viewModel.showingSheet) {
             let tiersLegendViewModel = TiersLegendViewModel(tier: viewModel.tier, expireDate: viewModel.expireDate)
             TiersLegendView(viewModel: tiersLegendViewModel)
         }

@@ -6,18 +6,20 @@
 //
 
 import SwiftUI
+import AVKit
 
 struct HomeView: View {
     @Environment(\.dismiss) var dismiss
     var lift: CGFloat = -50
     @StateObject var viewModel: HomeViewModel = HomeViewModel()
+    private let blackBackgroundHeight: CGFloat = 209
     
     var body: some View {
         ScrollView {
             Rectangle()
                 .fill(Color.black)
-                .frame(height: 209)
-            VStack (spacing: 30) {
+                .frame(height: blackBackgroundHeight)
+            VStack (spacing: Spacing.xl) {
                 HomeSectionOne()
                     .environmentObject(viewModel)
                 HomeSectionTwo()
@@ -25,7 +27,7 @@ struct HomeView: View {
                 HomeSectionThree(expireDate: viewModel.dateFormatter.string(from: viewModel.expireDate))
             }
             .offset(y: lift)
-            .padding(.horizontal, 32)
+            .padding(.horizontal, Spacing.xl)
         }
         .background(
             Color.background
@@ -39,8 +41,6 @@ struct HomeView: View {
                 closeButton: false,
                 dismiss: dismiss
             )
-            .padding(.horizontal, Spacing.sm)
-            .padding(.vertical)
             .background(Color.black)
         }
     }

@@ -10,10 +10,12 @@ import SwiftUI
 struct TierComponent: View {
     @EnvironmentObject var viewModel: HomeViewModel
     @State private var showingSheet = false
+    private let pointsFrontier: Float = 125
+    private let secondPhaseUpLimit: Int = 200
     
     var body: some View {
-        VStack (spacing: 16) {
-            VStack(alignment: .leading,spacing: 8) {
+        VStack (spacing: Spacing.md) {
+            VStack(alignment: .leading,spacing: Spacing.sm) {
                 HStack {
                     Text("YOU'RE A \(viewModel.tier.title(tierActive: false).uppercased()).")
                         .font(.hgTitle)
@@ -25,8 +27,8 @@ struct TierComponent: View {
                         }
                     )
                 }
-                if (viewModel.points <= 125) {
-                    HStack (spacing: 3) {
+                if (viewModel.points <= pointsFrontier) {
+                    HStack (spacing: Spacing.xs) {
                         Text("You have")
                             .font(.hgBody)
                             .foregroundStyle(.secondary)
@@ -41,11 +43,11 @@ struct TierComponent: View {
                         .font(.hgBody)
                         .foregroundStyle(.secondary)
                 } else {
-                    HStack (spacing: 3) {
+                    HStack (spacing: Spacing.xs) {
                         Text("Get")
                             .font(.hgBody)
                             .foregroundStyle(.secondary)
-                        Text("\(200 - Int(viewModel.points))")
+                        Text("\(secondPhaseUpLimit - Int(viewModel.points))")
                             .font(.hgBody)
                             .foregroundStyle(.baseGray)
                         Text("green stamps more before")
@@ -56,15 +58,15 @@ struct TierComponent: View {
                         .font(.hgBody)
                         .foregroundStyle(.secondary)
                     HStack {
-                        Text("\(200 - Int(viewModel.points)) of 100 Green stamps")
+                        Text("\(secondPhaseUpLimit - Int(viewModel.points)) of 100 Green stamps")
                             .font(.hgBody)
                             .foregroundStyle(.honestVisibility)
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 6)
+                            .padding(.horizontal, Spacing.md)
+                            .padding(.vertical, Spacing.sm)
                             .background(
                                 Rectangle()
                                     .fill(.honestVisibility.opacity(0.1))
-                                    .cornerRadius(8)
+                                    .cornerRadius(CornerRadius.xs)
                             )
                     }
                 }
@@ -74,11 +76,12 @@ struct TierComponent: View {
                 .environmentObject(viewModel)
         }
         .padding(.horizontal, Spacing.xl)
-        .sheet(isPresented: $showingSheet) {
-            let tiersViewModel = TiersViewModel(
+        .sheetOrFullScreen(isPresented: $showingSheet) {
+            let tiersVM = TiersViewModel(
                 tier: viewModel.tier,
-                                                expireDate: viewModel.dateFormatter.string(from: viewModel.expireDate))
-            TiersView(viewModel: tiersViewModel)
+                expireDate: viewModel.dateFormatter.string(from: viewModel.expireDate)
+            )
+            TiersView(viewModel: tiersVM)
         }
     }
 }

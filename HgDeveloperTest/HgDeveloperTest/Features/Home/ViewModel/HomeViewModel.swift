@@ -6,13 +6,35 @@
 //
 
 import Foundation
+import AVFoundation
 
 final class HomeViewModel: ObservableObject {
-    @Published var userName: String = "Dani"
+    @Published var userName: String = "ARTURO CASAS"
     @Published var points: Float = Float.random(in: 0...200)
     @Published var greenInsignias: Float = Float.random(in: 0...10)
     @Published var beansInsignias: Float = Float.random(in: 0...10)
     @Published var expireDate: Date = Date()
+    let player: AVPlayer
+    
+    init() {
+        let url = Bundle.main.url(forResource: "legendLoop", withExtension: "mp4")!
+        self.player = AVPlayer(url: url)
+        
+        // Loop automático
+        NotificationCenter.default.addObserver(
+            forName: .AVPlayerItemDidPlayToEndTime,
+            object: player.currentItem,
+            queue: .main
+        ) { [weak player] _ in
+            player?.seek(to: .zero)
+            player?.play()
+        }
+    }
+    
+    func playVideo() {
+        player.seek(to: .zero)
+        player.play()
+    }
     
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()

@@ -12,6 +12,9 @@ struct Header: View {
     let backButton: Bool
     let closeButton: Bool
     let dismiss: DismissAction
+    let headerHeight: CGFloat = 20
+    let imageHeight: CGFloat = 20
+    let imageWidth: CGFloat = 26
     
     var body: some View {
         HStack {
@@ -27,13 +30,15 @@ struct Header: View {
                 Image(systemName: "xmark")
                     .resizable()
                     .foregroundStyle(.terracota)
-                    .frame(width: 26, height: 20)
+                    .frame(width: imageWidth, height: imageHeight)
                     .onTapGesture {dismiss()}
             }
         }
-        .frame(height: 20)
+        .frame(height: headerHeight)
         .frame(maxWidth: .infinity)
         .ignoresSafeArea()
+        .padding(.horizontal, Spacing.md)
+        .padding(.vertical, Spacing.md)
     }
 }
 

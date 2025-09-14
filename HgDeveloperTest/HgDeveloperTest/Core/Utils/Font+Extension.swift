@@ -8,16 +8,21 @@
 import SwiftUI
 
 extension Font {
+    //MARK: Futura
     static let hgTitle: Font = .custom("FuturaStd-Bold", size: 18)
     static let hgChallengeTitle: Font = .custom("FuturaStd-Bold", size: 32)
-    static let hgTierTitle: Font = .custom("FuturaStd-Bold", size: 47)
-    static let hgSubtitle: Font = .system(size: 16)
-    static let buttontitle: Font = .system(size: 13, weight: .bold)
-    static let hgBody: Font = .custom("BasierCircle-Regular", size: 13)
-    static let hgChallengeInfo: Font = .custom("BasierCircle-Regular", size: 8)
-    static let hgProgressView: Font = .custom("BasierCircle-Regular", size: 12)
-    static let hgRewardTitle: Font = .custom("BasierCircle-Regular", size: 17)
-    static let hgTierLegendBody: Font = .custom("BasierCircle-Regular", size: 11)
-    static let hgTierLegendSubtitle: Font = .custom("BasierCircle-Regular", size: 9)
     static let hgLegendTitle: Font = .custom("FuturaStd-Bold", size: 36)
+    static let hgTierTitle: Font = .custom("FuturaStd-Bold", size: 47)
+    
+    //MARK: SF PRO
+    static let buttontitle: Font = .system(size: 13, weight: .bold)
+    static let hgSubtitle: Font = .system(size: 16)
+    
+    //MARK: BaseCircle
+    static let hgChallengeInfo: Font = .custom("BasierCircle-Regular", size: 8)
+    static let hgTierLegendSubtitle: Font = .custom("BasierCircle-Regular", size: 9)
+    static let hgTierLegendBody: Font = .custom("BasierCircle-Regular", size: 11)
+    static let hgProgressView: Font = .custom("BasierCircle-Regular", size: 12)
+    static let hgBody: Font = .custom("BasierCircle-Regular", size: 13)
+    static let hgRewardTitle: Font = .custom("BasierCircle-Regular", size: 17)
 }

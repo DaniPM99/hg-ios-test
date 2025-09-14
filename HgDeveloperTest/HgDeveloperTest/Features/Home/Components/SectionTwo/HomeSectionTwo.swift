@@ -11,7 +11,7 @@ struct HomeSectionTwo: View {
     @EnvironmentObject var viewModel: HomeViewModel
     
     var body: some View {
-        VStack(spacing: 30) {
+        VStack(spacing: Spacing.xl) {
             ForEach(ChallengeType.allCases, id: \.self) { item in
                 HomeChallengeCard(challengeType: item)
                     .environmentObject(viewModel)

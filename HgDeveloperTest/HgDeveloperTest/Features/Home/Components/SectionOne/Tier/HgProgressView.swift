@@ -9,45 +9,51 @@ import SwiftUI
 
 struct HgProgressView: View {
     @EnvironmentObject var viewModel: HomeViewModel
-    let tiersLevels: [(title: String, startLevel: Float, lastLevel: Float)] = [
+    private let tiersLevels: [(title: String, startLevel: Float, lastLevel: Float)] = [
         ("Starter", 0, 20),
         ("Champ", 20, 50),
         ("Star", 50, 100),
         ("Legend", 100, 100)
     ]
+    private let pointsFrontier: Float = 125
+    private let progressViewDivision: Float = 3
+    private let secondPhaseDownLimit: Int = 100
+    private let secondPhaseUpLimit: Int = 200
+    private let progressViewWidth: CGFloat = 316
+    private let progressViewHeight: CGFloat = 58
+    private let checkPointWidth: CGFloat = 80
+    private let checkPointHeight: CGFloat = 30
+    private let tierCircleSize: CGFloat = 19
+    private let tierCircleBorder: CGFloat = 9
+    
+    
     var body: some View {
-        VStack (spacing: 12) {
-            if viewModel.points <= 125 {
-                ProgressView(value: viewModel.normalizedProgress(), total: 3)
-                    .progressViewStyle(
-                        LinearProgressViewStyle(tint:.honestVisibility)
-                    )
-                    .scaleEffect(x: 1, y: 2, anchor: .center)
-            } else {
-                ProgressView(value: viewModel.normalizedProgressSecondPhase(), total: 1)
-                    .progressViewStyle(LinearProgressViewStyle(tint:.honestVisibility))
-                    .scaleEffect(x: 1, y: 2, anchor: .center)
-            }
-                
-            HStack (spacing: 20) {
-                if viewModel.points <= 125 {
+        VStack (spacing: Spacing.md) {
+            ProgressView(value: viewModel.points <= pointsFrontier ? viewModel.normalizedProgress() : viewModel.normalizedProgressSecondPhase(), total: viewModel.points <= pointsFrontier ? 3 : 1)
+                .progressViewStyle(
+                    LinearProgressViewStyle(tint:.honestVisibility)
+                )
+                .scaleEffect(x: 1, y: 2, anchor: .center)
+            
+            HStack (spacing: Spacing.lg) {
+                if viewModel.points <= pointsFrontier {
                     ForEach(tiersLevels, id: \.title) { tier in
-                            tierCheckPoint(
-                                tier.title,
-                                Int(tier.startLevel),
-                                Int(tier.lastLevel)
-                            )
+                        tierCheckPoint(
+                            tier.title,
+                            Int(tier.startLevel),
+                            Int(tier.lastLevel)
+                        )
                     }
                 } else {
-                    tierCheckPointSecondPhase(100, 200)
+                    tierCheckPointSecondPhase(secondPhaseDownLimit, secondPhaseUpLimit)
                 }
             }
         }
-        .frame(width: 316, height: 58)
+        .frame(width: progressViewWidth, height: progressViewHeight)
     }
     
     func tierCheckPoint(_ title: String, _ startLevel: Int, _ lastLevel: Int) -> some View {
-        VStack (spacing: 8) {
+        VStack (spacing: Spacing.sm) {
             tierCircle(isActive: Int(viewModel.points) >= startLevel)
                 .offset(y: -10)
             Text(title)
@@ -57,12 +63,12 @@ struct HgProgressView: View {
                 .font(.hgProgressView)
                 .foregroundStyle(.disabled)
         }
-        .frame(width: 80, height: 30)
+        .frame(width: checkPointWidth, height: checkPointHeight)
     }
     
     func tierCheckPointSecondPhase(_ startLevel: Int, _ endLevel: Int) -> some View {
         HStack {
-            VStack (spacing: 8) {
+            VStack (spacing: Spacing.sm) {
                 tierCircle(isActive: Int(viewModel.points) >= 100)
                     .offset(y: -10)
                 Text("Legend 2025")
@@ -74,12 +80,12 @@ struct HgProgressView: View {
                     .foregroundStyle(.disabled)
                     .offset(x: 25)
             }
-            .frame(width: 80, height: 30)
+            .frame(width: checkPointWidth, height: checkPointHeight)
             .offset(x: -35)
-
+            
             Spacer()
-
-            VStack (spacing: 8) {
+            
+            VStack (spacing: Spacing.sm) {
                 tierCircle(isActive: Int(viewModel.points) >= 200)
                     .offset(y: -10)
                 Text("Legend 2026")
@@ -91,21 +97,21 @@ struct HgProgressView: View {
                     .foregroundStyle(.disabled)
                     .offset(x: -25)
             }
-            .frame(width: 80, height: 30)
+            .frame(width: checkPointWidth, height: checkPointHeight)
             .offset(x: 35)
         }
-        .frame(width: 316) // mismo ancho que tu progressView
+        .frame(width: progressViewWidth)
     }
     
     func tierCircle(isActive: Bool) -> some View {
         ZStack {
             Circle()
                 .fill(Color.white)
-                .frame(width: 19, height: 19)
+                .frame(width: tierCircleSize, height: tierCircleSize)
                 .overlay(
                     Circle().stroke(
                         isActive ? .honestVisibility : .disabled,
-                        lineWidth: 9
+                        lineWidth: tierCircleBorder
                     )
                 )
         }

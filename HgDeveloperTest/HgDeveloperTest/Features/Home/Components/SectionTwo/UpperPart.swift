@@ -9,6 +9,8 @@ import SwiftUI
 
 struct UpperPart: View {
     let challengeType: ChallengeType
+    private let upperPartHeight: CGFloat = 168
+    private let upperPartIconOffset: CGFloat = -100
     var body: some View {
         VStack {
             ZStack {
@@ -23,20 +25,20 @@ struct UpperPart: View {
                             endPoint: .trailing
                         )
                     )
-                    .frame(height: 168)
+                    .frame(height: upperPartHeight)
                     .frame(maxWidth: .infinity)
                 challengeType.icon
                     .resizable()
                     .rotationEffect(.degrees(challengeType.rotation))
-                    .offset(y:-100)
+                    .offset(y:upperPartIconOffset)
                     .frame(width: challengeType.width, height: challengeType.height)
 
-                VStack(spacing: 24) {
+                VStack(spacing: Spacing.lg) {
                     Text(challengeType.title)
                         .font(.hgChallengeTitle)
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)
-                    VStack(spacing: 8) {
+                    VStack(spacing: Spacing.sm) {
                         Text(challengeType.body)
                             .font(.hgBody)
                             .multilineTextAlignment(.center)
@@ -47,7 +49,7 @@ struct UpperPart: View {
                 }
             }
         }
-        .frame(height: 168)
+        .frame(height: upperPartHeight)
         .frame(maxWidth: .infinity)
     }
 }

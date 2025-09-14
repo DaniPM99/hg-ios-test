@@ -17,7 +17,7 @@ struct HomeSectionOne: View {
     }
 
     private var card: some View {
-        VStack(spacing: 30) {
+        VStack(spacing: Spacing.xl) {
             HomeHeader()
                 .environmentObject(viewModel)
             TierComponent()
@@ -25,12 +25,11 @@ struct HomeSectionOne: View {
             Divider()
             RewardsView()
         }
-        .padding(.bottom, 30)
+        .padding(.bottom, Spacing.xl)
         .background(
             RoundedRectangle(cornerRadius: 14, style: .continuous)
                 .fill(Color.white)
                 .shadow(color: .black.opacity(0.06), radius: 8, y: 2)
-                .cornerRadius(14)
         )
         .overlay(alignment: .top) {
             TierTag(

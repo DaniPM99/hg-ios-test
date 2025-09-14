@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HgTierButton: View {
+    private let hgTierButtonWidth: CGFloat = 156
+    private let hgTierButtonHeight: CGFloat = 49
+    
     let action: () -> Void
     var body: some View {
         HStack {
@@ -15,9 +18,9 @@ struct HgTierButton: View {
                 .font(.hgRewardTitle)
                 .foregroundColor(.terracota)
         }
-        .frame(width: 156, height: 49)
+        .frame(width: hgTierButtonWidth, height: hgTierButtonHeight)
         .background(.white)
-        .cornerRadius(25)
+        .cornerRadius(CornerRadius.xl)
         .onTapGesture {action()}
     }
 }

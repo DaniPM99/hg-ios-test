@@ -12,28 +12,36 @@ struct TierTag: View {
     let tierActive: Bool
     let isAnimated: Bool
     @State private var animate = false
-    @State private var offsetX: CGFloat = -70 // empieza un poco a la izquierda
+    @State private var offsetX: CGFloat = -70
+    private let tierTagStandardPosition: CGFloat = 0
+    private let tierTagWidth: CGFloat = 116
+    private let tierTagHeight: CGFloat = 34
+    private let tierTagAnimationDuration: CGFloat = 1
+    private let iconCurrentSize: CGFloat = 1.0
+    private let iconBiggerSize: CGFloat = 1.4
+    private let iconAnimationDuration: CGFloat = 0.8
+    
     
     var body: some View {
         HStack {
             tagStyle.icon(tierActive: tierActive)
-                .scaleEffect(animate ? 1.0 : 1.4) // de peque a normal
+                .scaleEffect(animate ? iconCurrentSize : iconBiggerSize)
                 .onAppear {
-                    withAnimation(.easeOut(duration: 0.8)) {
+                    withAnimation(.easeOut(duration: iconAnimationDuration)) {
                         animate = true
                     }
                 }
             Text(tagStyle.title(tierActive: tierActive))
                 .bold()
         }
-        .frame(width: 116, height: 34)
+        .frame(width: tierTagWidth, height: tierTagHeight)
         .background(tagStyle.color)
-        .cornerRadius(6)
-        .offset(x: isAnimated ? offsetX : 0)
+        .cornerRadius(CornerRadius.xxs)
+        .offset(x: isAnimated ? offsetX : tierTagStandardPosition)
         .onAppear {
             if isAnimated {
-                withAnimation(.easeOut(duration: 1)) {
-                    offsetX = 0
+                withAnimation(.easeOut(duration: tierTagAnimationDuration)) {
+                    offsetX = tierTagStandardPosition
                 }
             }
         }

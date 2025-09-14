@@ -9,8 +9,8 @@ import SwiftUI
 
 struct RewardsView: View {
     var body: some View {
-        VStack (alignment: .leading, spacing: 24) {
-                VStack (alignment: .leading,spacing: 4) {
+        VStack (alignment: .leading, spacing: Spacing.lg) {
+                VStack (alignment: .leading,spacing: Spacing.xs) {
                     Text("REWARDS.")
                         .font(.hgTitle)
                     Text("These are your rewards this month.")
@@ -19,7 +19,7 @@ struct RewardsView: View {
                 }
                 .padding(.horizontal, Spacing.xl)
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 20) {
+                    HStack(spacing: Spacing.lg) {
                         ForEach(RewardType.allCases, id: \.self) { style in
                             RewardCard(rewardType: style)
                         }
