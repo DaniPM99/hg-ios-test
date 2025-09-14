@@ -31,8 +31,8 @@ struct TiersLegendView: View {
                 ForEach(BenefitsTier.allCases, id: \.self) { benefit in
                     TierCardView(
                         benefits: benefit,
-                        isActive: viewModel.tierBenefit.rawValue >= benefit.rawValue,
-                        tierTag: viewModel.matchTierWithBenefit(benefit: benefit)
+                        tierTag: viewModel.matchTierWithBenefit(benefit: benefit),
+                        actualBenefit: viewModel.tierBenefit
                     )
                 }
                 HomeSectionThree(expireDate: viewModel.expireDate)

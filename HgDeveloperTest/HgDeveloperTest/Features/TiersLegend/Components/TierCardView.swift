@@ -9,13 +9,13 @@ import SwiftUI
 
 struct TierCardView: View {
     let benefits: BenefitsTier
-    let isActive: Bool
     let tierTag: TagType
+    let actualBenefit: BenefitsTier
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             HStack {
-                Image(isActive ? "unlock" : "lock")
+                Image(actualBenefit.rawValue >= benefits.rawValue ? "unlock" : "lock")
                 VStack(alignment: .leading, spacing: 4) {
                     Text(benefits.title)
                         .font(.hgTitle)
@@ -32,7 +32,7 @@ struct TierCardView: View {
                 ForEach(benefits.benefits, id: \.self) { item in
                     HStack(spacing: 8) {
                         Image(systemName: "checkmark")
-                                .foregroundColor(isActive ? .green : .disabled)
+                                .foregroundColor(actualBenefit.rawValue >= benefits.rawValue ? .green : .disabled)
                                 .frame(width: 17, height: 13)
                         Text(item)
                             .font(.hgTierLegendBody)
@@ -46,14 +46,14 @@ struct TierCardView: View {
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color.white)
-                .border(isActive ? benefits.color : .disabled, width: 1)
+                .border(actualBenefit.rawValue >= benefits.rawValue ? benefits.color : .disabled, width: 1)
                 .cornerRadius(14)
-                .shadow(color: isActive ? benefits.color : .disabled, radius: 40, x: 0, y: 2)
+                .shadow(color: actualBenefit.rawValue >= benefits.rawValue ? benefits.color : .disabled, radius: 40, x: 0, y: 2)
         )
         .overlay(alignment: .topTrailing) {
             TierTag(
                 tagStyle: tierTag,
-                tierActive: isActive,
+                tierActive: actualBenefit.rawValue == benefits.rawValue,
                 isAnimated: false
             )
             .offset(x: -16, y: -16)
@@ -64,7 +64,7 @@ struct TierCardView: View {
 #Preview {
     TierCardView(
         benefits: .gold,
-        isActive: false,
-        tierTag: .gold
+        tierTag: .gold,
+        actualBenefit: .gold
     )
 }
