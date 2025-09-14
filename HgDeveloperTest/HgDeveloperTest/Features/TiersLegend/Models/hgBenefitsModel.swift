@@ -32,6 +32,7 @@ let benefitsEmeralSix = "2 chances to win an invitation to our\nyearly mastercla
 let benefitsEmeralSeven = "2 chances to win an invitation to our\nbimonthly wellness exlcusive events."
 
 protocol BenefitsProvider {
+    var tag: String { get }
     var title: String { get }
     var body: String { get }
     var color: Color { get }
@@ -46,6 +47,19 @@ enum BenefitsTier: Int, CaseIterable {
 }
 
 extension BenefitsTier: BenefitsProvider {
+    var tag: String {
+        switch self {
+        case .bronze:
+            return "Starter"
+        case .silver:
+            return "Champ"
+        case .gold:
+            return "Star"
+        case .emerald:
+            return "Legend"
+        }
+    }
+    
     var title: String {
         switch self {
         case .bronze:

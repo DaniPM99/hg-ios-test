@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeSectionOne: View {
     var reservedTop: CGFloat = -40
-    var reservedLeft: CGFloat = 60
+    var reservedLeft: CGFloat = 85
     @EnvironmentObject var viewModel: HomeViewModel
     
     var body: some View {
@@ -33,11 +33,13 @@ struct HomeSectionOne: View {
                 .cornerRadius(14)
         )
         .overlay(alignment: .top) {
-            HStack(spacing: 0) {
-                AvatarView()
-                TierTag(tagStyle: viewModel.tier, tierActive: false)
-            }
-            .offset(x: reservedLeft,y:reservedTop)
+            TierTag(
+                tagStyle: viewModel.tier,
+                tierActive: false,
+                isAnimated: true)
+                .offset(x: reservedLeft,y:reservedTop)
+            AvatarView()
+                .offset(y:reservedTop)
         }
     }
 }

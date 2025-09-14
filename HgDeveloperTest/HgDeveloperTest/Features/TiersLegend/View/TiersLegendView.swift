@@ -19,6 +19,7 @@ struct TiersLegendView: View {
                 closeButton: true,
                 dismiss: dismiss
             )
+            .padding(.horizontal, 36)
             VStack(spacing: 32) {
                 VStack(spacing: 8) {
                     Text("HONEST\nPEOPLE.")
@@ -28,21 +29,26 @@ struct TiersLegendView: View {
                         .foregroundStyle(.secondary)
                 }
                 ForEach(BenefitsTier.allCases, id: \.self) { benefit in
-                    TierCardView(benefits: benefit, isActive: viewModel.tierBenefit.rawValue >= benefit.rawValue)
+                    TierCardView(
+                        benefits: benefit,
+                        isActive: viewModel.tierBenefit.rawValue >= benefit.rawValue,
+                        tierTag: viewModel.matchTierWithBenefit(benefit: benefit)
+                    )
                 }
-                HomeSectionThree(expireDate: viewModel.expierDate)
+                HomeSectionThree(expireDate: viewModel.expireDate)
             }
             .padding(.horizontal, 36)
         }
-        .padding(.top, Spacing.xl)
+        .padding(.vertical, Spacing.xl)
         .background(
             Color.background
         )
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .ignoresSafeArea()
     }
 }
 
 #Preview {
-    let viewModel = TiersLegendViewModel(tier: .bronze, expierDate: "01/01/2026")
+    let viewModel = TiersLegendViewModel(tier: .gold, expireDate: "01/01/2026")
     TiersLegendView(viewModel: viewModel)
 }

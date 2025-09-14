@@ -11,10 +11,13 @@ import AVKit
 final class TiersViewModel: ObservableObject {
     @Published var tier: TagType
     @Published var showingSheet = false
+    @Published var expireDate: String
+    
     let player: AVPlayer
     
-    init(tier: TagType) {
+    init(tier: TagType, expireDate: String) {
         self.tier = tier
+        self.expireDate = expireDate
         self.player = AVPlayer(url: Bundle.main.url(forResource: tier.videoTitle, withExtension: "mp4")!)
     }
     

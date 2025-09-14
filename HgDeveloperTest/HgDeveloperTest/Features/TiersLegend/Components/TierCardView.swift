@@ -10,6 +10,7 @@ import SwiftUI
 struct TierCardView: View {
     let benefits: BenefitsTier
     let isActive: Bool
+    let tierTag: TagType
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -49,9 +50,21 @@ struct TierCardView: View {
                 .cornerRadius(14)
                 .shadow(color: isActive ? benefits.color : .disabled, radius: 40, x: 0, y: 2)
         )
+        .overlay(alignment: .topTrailing) {
+            TierTag(
+                tagStyle: tierTag,
+                tierActive: isActive,
+                isAnimated: false
+            )
+            .offset(x: -16, y: -16)
+        }
     }
 }
 
 #Preview {
-    TierCardView(benefits: .gold, isActive: false)
+    TierCardView(
+        benefits: .gold,
+        isActive: false,
+        tierTag: .gold
+    )
 }

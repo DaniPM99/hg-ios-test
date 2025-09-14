@@ -35,23 +35,13 @@ struct TiersView: View {
                 VStack (spacing: 32) {
                     TierTag(
                         tagStyle: viewModel.tier,
-                        tierActive: false
-                    )
+                        tierActive: false,
+                        isAnimated: false)
                     Text(viewModel.tier.tierTitle)
                         .font(.hgTierTitle)
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)
-                    HStack {
-                        ForEach(1..<5) { item in
-                            if (item <= viewModel.tier.numberOfStars) {
-                                Image(systemName: "sparkle")
-                                    .foregroundStyle(.white)
-                            } else {
-                                Image(systemName: "lock.fill")
-                                    .foregroundStyle(.terracota)
-                            }
-                        }
-                    }
+                    StarsRow(numberOfStars: viewModel.tier.numberOfStars)
                     Text(viewModel.tier.tierSubtitle)
                         .font(.hgRewardTitle)
                         .foregroundStyle(.white)
@@ -65,13 +55,13 @@ struct TiersView: View {
             .padding(Spacing.xl)
         }
         .sheet(isPresented: $viewModel.showingSheet) {
-            let tiersLegendViewModel = TiersLegendViewModel(tier: viewModel.tier, expierDate: "01/01/2025")
+            let tiersLegendViewModel = TiersLegendViewModel(tier: viewModel.tier, expireDate: viewModel.expireDate)
             TiersLegendView(viewModel: tiersLegendViewModel)
         }
     }
 }
 
 #Preview {
-    var viewModel = TiersViewModel(tier: .bronze)
+    var viewModel = TiersViewModel(tier: .silver, expireDate: "01/01/2026")
     TiersView(viewModel: viewModel)
 }

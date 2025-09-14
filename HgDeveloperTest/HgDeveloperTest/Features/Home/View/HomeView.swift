@@ -22,7 +22,7 @@ struct HomeView: View {
                     .environmentObject(viewModel)
                 HomeSectionTwo()
                     .environmentObject(viewModel)
-                HomeSectionThree(expireDate: viewModel.expireDate)
+                HomeSectionThree(expireDate: viewModel.dateFormatter.string(from: viewModel.expireDate))
             }
             .offset(y: lift)
             .padding(.horizontal, 32)

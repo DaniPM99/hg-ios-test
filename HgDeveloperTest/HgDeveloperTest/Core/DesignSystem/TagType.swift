@@ -102,7 +102,7 @@ extension TagType: TagStyleProtocol {
             case .gold:
                 return "Star"
             case .emerald:
-                return "Gold"
+                return "Legend"
             }
         }
     }
