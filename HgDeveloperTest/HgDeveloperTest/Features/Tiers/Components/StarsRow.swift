@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StarsRow: View {
-    let numberOfStars: Int // de 1 a 4
+    let numberOfStars: Int
     @State private var revealedStars = 0
     
     var body: some View {

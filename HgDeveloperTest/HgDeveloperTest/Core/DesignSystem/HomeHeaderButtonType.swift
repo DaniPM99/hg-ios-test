@@ -57,7 +57,6 @@ extension HgButtonType: HgButtonProtocol {
         case .redeem, .history:
             return 133
         case .knowMore:
-            //return 69
             return 75
         case .noIconRedeem:
             return 76

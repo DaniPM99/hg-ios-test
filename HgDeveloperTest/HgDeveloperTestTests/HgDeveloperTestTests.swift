@@ -9,7 +9,6 @@ import Testing
 @testable import HgDeveloperTest
 
 struct HgDeveloperTestTests {
-
     struct HHomeViewModelTests {
         @Test func addPoints() {
             let viewModel = HomeViewModel()
@@ -33,8 +32,4 @@ struct HgDeveloperTestTests {
             }
         }
     }
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
-    }
-
 }

@@ -152,7 +152,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "01/01/2026 para mantener tu nivel, Leyenda"
+            "value" : "01/01/2026 para mantener tu nivel, Legend"
           }
         }
       }
@@ -520,10 +520,16 @@
     },
     "Say hello to our new loyalty\nprogram; Honest People." : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Say hello to our new loyalty\nprogram;\nHonest People."
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Saluda a nuestro programa de lealtad; Honest People."
+            "value" : "Saluda a nuestro programa de lealtad;\nHonest People."
           }
         }
       }

@@ -29,39 +29,39 @@ struct HomeHeader: View {
                 .frame(maxWidth: .infinity)
                 .cornerRadius(CornerRadius.md)
             VStack (spacing: Spacing.md) {
-                    Text(viewModel.userName)
-                        .font(.hgTitle)
-                    HStack {
-                        Image(systemName: "gift")
-                            .opacity(subtitleTextOpacity)
-                        Text("5,40 €")
-                            .opacity(subtitleTextOpacity)
-                            .bold()
-                        Text(String(localized: "· Joined Sep. 2021"))
-                            .opacity(subtitleTextOpacity)
+                Text(viewModel.userName)
+                    .font(.hgTitle)
+                HStack {
+                    Image(systemName: "gift")
+                        .opacity(subtitleTextOpacity)
+                    Text("5,40 €")
+                        .opacity(subtitleTextOpacity)
+                        .bold()
+                    Text(String(localized: "· Joined Sep. 2021"))
+                        .opacity(subtitleTextOpacity)
+                }
+                HStack (spacing: Spacing.md) {
+                    Button(action: {
+                        viewModel.operatePoints(operation: "+")
+                    }) {
+                        Image(systemName: "plus")
                     }
-                    HStack (spacing: Spacing.md) {
-                        Button(action: {
-                            viewModel.operatePoints(operation: "+")
-                        }) {
-                            Image(systemName: "plus")
-                        }
-                        HgButton(
-                            hgType: .redeem,
-                            action: {}
-                        )
-                        HgButton(
-                            hgType: .history,
-                            action: {}
-                        )
-                        Button(action: {
-                            viewModel.operatePoints(operation: "-")
-                        }) {
-                            Image(systemName: "minus")
-                        }
+                    HgButton(
+                        hgType: .redeem,
+                        action: {}
+                    )
+                    HgButton(
+                        hgType: .history,
+                        action: {}
+                    )
+                    Button(action: {
+                        viewModel.operatePoints(operation: "-")
+                    }) {
+                        Image(systemName: "minus")
                     }
                 }
-                .padding(.top, Spacing.xxxl)
+            }
+            .padding(.top, Spacing.xxxl)
         }
     }
 }

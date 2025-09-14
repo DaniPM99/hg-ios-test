@@ -27,38 +27,24 @@ struct TierComponent: View {
                         }
                     )
                 }
-                if (viewModel.points <= pointsFrontier) {
-                    HStack (spacing: Spacing.xs) {
-                        Text("You have")
-                            .font(.hgBody)
-                            .foregroundStyle(.secondary)
-                        Text("\(Int(viewModel.points))")
-                            .font(.hgBody)
-                            .foregroundStyle(.baseGray)
-                        Text("green stamps.")
-                            .font(.hgBody)
-                            .foregroundStyle(.secondary)
-                    }
-                    Text("You’re real honest people!")
+                
+                HStack (spacing: Spacing.xs) {
+                    Text(viewModel.points <= pointsFrontier ? "You have" : "Get")
                         .font(.hgBody)
                         .foregroundStyle(.secondary)
-                } else {
-                    HStack (spacing: Spacing.xs) {
-                        Text("Get")
-                            .font(.hgBody)
-                            .foregroundStyle(.secondary)
-                        Text("\(secondPhaseUpLimit - Int(viewModel.points))")
-                            .font(.hgBody)
-                            .foregroundStyle(.baseGray)
-                        Text("green stamps more before")
-                            .font(.hgBody)
-                            .foregroundStyle(.secondary)
-                    }
-                    Text("01/01/2026 to keep your level, Legend.")
+                    Text(viewModel.points <= pointsFrontier ? "\(Int(viewModel.points))" : "\(secondPhaseUpLimit - Int(viewModel.points))")
+                        .font(.hgBody)
+                        .foregroundStyle(.baseGray)
+                    Text(viewModel.points <= pointsFrontier ? "green stamps." : "green stamps more before")
                         .font(.hgBody)
                         .foregroundStyle(.secondary)
+                }
+                Text(viewModel.points <= pointsFrontier ? "You’re real honest people!" : "01/01/2026 to keep your level, Legend.")
+                    .font(.hgBody)
+                    .foregroundStyle(.secondary)
+                if (viewModel.points >= pointsFrontier) {
                     HStack {
-                        Text("\(secondPhaseUpLimit - Int(viewModel.points)) of 100 Green stamps")
+                        Text("\(Int(viewModel.points) - 100) of 100 Green stamps")
                             .font(.hgBody)
                             .foregroundStyle(.honestVisibility)
                             .padding(.horizontal, Spacing.md)

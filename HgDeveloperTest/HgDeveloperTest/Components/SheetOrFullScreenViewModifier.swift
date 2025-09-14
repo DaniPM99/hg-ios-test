@@ -16,7 +16,6 @@ struct SheetOrFullScreen<SheetView: View>: ViewModifier {
     func body(content: Content) -> some View {
         let isPad = UIDevice.current.userInterfaceIdiom == .pad
 
-        // Bindings “filtrados”: solo se activan en el dispositivo correcto
         let phoneBinding = Binding<Bool>(
             get: { !isPad && isPresented },
             set: { newValue in if !isPad { isPresented = newValue } }

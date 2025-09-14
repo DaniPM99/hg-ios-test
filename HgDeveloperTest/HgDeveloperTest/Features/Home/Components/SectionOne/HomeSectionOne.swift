@@ -15,7 +15,7 @@ struct HomeSectionOne: View {
     var body: some View {
         card
     }
-
+    
     private var card: some View {
         VStack(spacing: Spacing.xl) {
             HomeHeader()
@@ -36,7 +36,7 @@ struct HomeSectionOne: View {
                 tagStyle: viewModel.tier,
                 tierActive: false,
                 isAnimated: true)
-                .offset(x: reservedLeft,y:reservedTop)
+            .offset(x: reservedLeft,y:reservedTop)
             AvatarView()
                 .offset(y:reservedTop)
         }

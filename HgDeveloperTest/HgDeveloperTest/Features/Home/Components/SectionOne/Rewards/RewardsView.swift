@@ -10,22 +10,22 @@ import SwiftUI
 struct RewardsView: View {
     var body: some View {
         VStack (alignment: .leading, spacing: Spacing.lg) {
-                VStack (alignment: .leading,spacing: Spacing.xs) {
-                    Text(String(localized: "REWARDS."))
-                        .font(.hgTitle)
-                    Text(String(localized: "These are your rewards this month."))
-                        .font(.hgBody)
-                        .foregroundStyle(.secondary)
-                }
-                .padding(.horizontal, Spacing.xl)
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: Spacing.lg) {
-                        ForEach(RewardType.allCases, id: \.self) { style in
-                            RewardCard(rewardType: style)
-                        }
+            VStack (alignment: .leading,spacing: Spacing.xs) {
+                Text(String(localized: "REWARDS."))
+                    .font(.hgTitle)
+                Text(String(localized: "These are your rewards this month."))
+                    .font(.hgBody)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(.horizontal, Spacing.xl)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: Spacing.lg) {
+                    ForEach(RewardType.allCases, id: \.self) { style in
+                        RewardCard(rewardType: style)
                     }
-                    .padding(.leading, Spacing.xl)
                 }
+                .padding(.leading, Spacing.xl)
+            }
         }
     }
 }

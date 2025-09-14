@@ -27,18 +27,18 @@ struct TierCardView: View {
                         isActive: actualBenefit.rawValue == benefits.rawValue,
                         isPreviousFromActive: actualBenefit.rawValue >= benefits.rawValue
                     ))
-                        .font(.hgTierLegendSubtitle)
-                        .foregroundColor(.secondary)
+                    .font(.hgTierLegendSubtitle)
+                    .foregroundColor(.secondary)
                 }
             }
-
+            
             
             VStack(alignment: .leading, spacing: Spacing.md) {
                 ForEach(benefits.benefits, id: \.self) { item in
                     HStack(spacing: Spacing.sm) {
                         Image(systemName: "checkmark")
-                                .foregroundColor(actualBenefit.rawValue >= benefits.rawValue ? .green : .disabled)
-                                .frame(width: checkMarkWidth, height: checkMarkHeight)
+                            .foregroundColor(actualBenefit.rawValue >= benefits.rawValue ? .green : .disabled)
+                            .frame(width: checkMarkWidth, height: checkMarkHeight)
                         Text(item)
                             .font(.hgTierLegendBody)
                             .foregroundColor(.black)

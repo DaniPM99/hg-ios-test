@@ -10,11 +10,7 @@ import SwiftUI
 struct HomeChallengeCard: View {
     let challengeType: ChallengeType
     var insignias: Int {
-        if challengeType == .greens {
-            Int(viewModel.greenInsignias)
-        } else {
-            Int(viewModel.beansInsignias)
-        }
+        Int(challengeType == .greens ? viewModel.greenInsignias : viewModel.beansInsignias)
     }
     @EnvironmentObject var viewModel: HomeViewModel
     private let homeChallengeCardHeight: CGFloat = 335

@@ -32,7 +32,7 @@ struct UpperPart: View {
                     .rotationEffect(.degrees(challengeType.rotation))
                     .offset(y:upperPartIconOffset)
                     .frame(width: challengeType.width, height: challengeType.height)
-
+                
                 VStack(spacing: Spacing.lg) {
                     Text(challengeType.title)
                         .font(.hgChallengeTitle)
