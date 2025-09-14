@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HgTierButton: View {
+    let action: () -> Void
     var body: some View {
         HStack {
             Text("Ver beneficios")
@@ -17,9 +18,10 @@ struct HgTierButton: View {
         .frame(width: 156, height: 49)
         .background(.white)
         .cornerRadius(25)
+        .onTapGesture {action()}
     }
 }
 
 #Preview {
-    HgTierButton()
+    HgTierButton(action: {})
 }

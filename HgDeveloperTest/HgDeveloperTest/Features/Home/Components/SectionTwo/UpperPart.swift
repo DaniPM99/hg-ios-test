@@ -23,7 +23,8 @@ struct UpperPart: View {
                             endPoint: .trailing
                         )
                     )
-                    .frame(width: 339, height: 168)
+                    .frame(height: 168)
+                    .frame(maxWidth: .infinity)
                 challengeType.icon
                     .resizable()
                     .rotationEffect(.degrees(challengeType.rotation))
@@ -46,7 +47,8 @@ struct UpperPart: View {
                 }
             }
         }
-        .frame(width: 339, height: 168)
+        .frame(height: 168)
+        .frame(maxWidth: .infinity)
     }
 }
 

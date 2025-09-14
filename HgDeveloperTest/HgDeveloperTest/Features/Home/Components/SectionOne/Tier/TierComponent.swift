@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct TierComponent: View {
+    @EnvironmentObject var viewModel: HomeViewModel
     @State private var showingSheet = false
-    let points: Float = 100
+    
     var body: some View {
         VStack (spacing: 16) {
             VStack(alignment: .leading,spacing: 8) {
                 HStack {
-                    Text("YOU'RE A LEGEND.")
+                    Text("YOU'RE A \(viewModel.tier.title(tierActive: false).uppercased()).")
                         .font(.hgTitle)
                     Spacer()
                     HgButton(
@@ -28,7 +29,7 @@ struct TierComponent: View {
                     Text("You have")
                         .font(.hgBody)
                         .foregroundStyle(.secondary)
-                    Text("100")
+                    Text("\(Int(viewModel.points))")
                     .font(.hgBody)
                     .foregroundStyle(.baseGray)
                     Text("green stamps.")
@@ -40,15 +41,17 @@ struct TierComponent: View {
                     .foregroundStyle(.secondary)
             }
             .padding(.horizontal, Spacing.sm)
-            HgProgressView(points: 25)
+            HgProgressView(points: viewModel.points)
         }
         .padding(.horizontal, Spacing.xl)
         .sheet(isPresented: $showingSheet) {
-            TiersView()
+            let tiersViewModel = TiersViewModel(tier: viewModel.tier)
+            TiersView(viewModel: tiersViewModel)
         }
     }
 }
 
 #Preview {
     TierComponent()
+        .environmentObject(HomeViewModel())
 }

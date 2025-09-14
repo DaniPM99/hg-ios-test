@@ -17,4 +17,7 @@ extension Font {
     static let hgChallengeInfo: Font = .custom("BasierCircle-Regular", size: 8)
     static let hgProgressView: Font = .custom("BasierCircle-Regular", size: 12)
     static let hgRewardTitle: Font = .custom("BasierCircle-Regular", size: 17)
+    static let hgTierLegendBody: Font = .custom("BasierCircle-Regular", size: 11)
+    static let hgTierLegendSubtitle: Font = .custom("BasierCircle-Regular", size: 9)
+    static let hgLegendTitle: Font = .custom("FuturaStd-Bold", size: 36)
 }

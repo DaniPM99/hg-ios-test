@@ -8,18 +8,27 @@
 import SwiftUI
 
 struct HomeChallengeCard: View {
-    let insignias: Int = 0
     let challengeType: ChallengeType
+    var insignias: Int {
+        if challengeType == .greens {
+            Int(viewModel.greenInsignias)
+        } else {
+            Int(viewModel.beansInsignias)
+        }
+    }
+    @EnvironmentObject var viewModel: HomeViewModel
+    
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            VStack {
+            VStack(spacing:0) {
                 UpperPart(challengeType: challengeType)
                 LowerPart(insignias: insignias, challengeType: challengeType)
             }
             InsigniaRecount(insignias: insignias)
         }
-        .frame(width: 339, height: 335)
         .cornerRadius(14)
+        .frame(height: 335)
+        .frame(maxWidth: .infinity)
     }
 }
 

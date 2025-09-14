@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeHeader: View {
+    @EnvironmentObject var viewModel: HomeViewModel
+    
     var body: some View {
         ZStack(alignment: .top) {
             Rectangle()
@@ -24,14 +26,8 @@ struct HomeHeader: View {
                 .frame(height: 187)
                 .frame(maxWidth: .infinity)
                 .cornerRadius(14)
-            VStack {
-                ZStack(alignment: .center) {
-                    TierTag(tagStyle: .bronze, tierActive: false)
-                        .offset(x:90)
-                    AvatarView()
-                }
                 VStack (spacing: 16) {
-                    Text("ARTURO CASAS")
+                    Text(viewModel.userName)
                         .font(.hgTitle)
                     HStack {
                         Image(systemName: "gift")
@@ -53,12 +49,12 @@ struct HomeHeader: View {
                         )
                     }
                 }
-            }
-            .offset(y:-40)
+                .padding(.top, 55)
         }
     }
 }
 
 #Preview {
     HomeHeader()
+        .environmentObject(HomeViewModel())
 }

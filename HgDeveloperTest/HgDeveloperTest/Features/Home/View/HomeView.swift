@@ -9,42 +9,40 @@ import SwiftUI
 
 struct HomeView: View {
     @Environment(\.dismiss) var dismiss
+    var lift: CGFloat = -50
+    @StateObject var viewModel: HomeViewModel = HomeViewModel()
+    
     var body: some View {
         ScrollView {
-            ZStack {
-                VStack {
-                    Color.black
-                        .frame(height: 189)
-                    Color.background
-                }
-                VStack {
-                    Header(
-                        title: "Hones greens",
-                        backButton: true,
-                        closeButton: false,
-                        dismiss: dismiss
-                    )
-                    VStack {
-                        HomeSectionOne()
-                            .padding(Spacing.md)
-                        ForEach(ChallengeType.allCases, id: \.self) { item in
-                            HomeChallengeCard(challengeType: item)
-                        }
-                        Divider()
-                            .tint(.black)
-                        HStack {
-                            Image("calendar")
-                                .tint(.disabled)
-                            Text("Tus sellos caducan el 01/06/2023.\nTu tier se resetea el 01/01/2024.")
-                                .foregroundStyle(.disabled)
-                        }
-                    }
-                    .padding(.top, 39)
-                }
-                .padding(.top, 60)
+            Rectangle()
+                .fill(Color.black)
+                .frame(height: 209)
+            VStack (spacing: 30) {
+                HomeSectionOne()
+                    .environmentObject(viewModel)
+                HomeSectionTwo()
+                    .environmentObject(viewModel)
+                HomeSectionThree(expireDate: viewModel.expireDate)
             }
+            .offset(y: lift)
+            .padding(.horizontal, 32)
         }
+        .background(
+            Color.background
+        )
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .ignoresSafeArea()
+        .safeAreaInset(edge: .top) {
+            Header(
+                title: "Honest People",
+                backButton: true,
+                closeButton: false,
+                dismiss: dismiss
+            )
+            .padding(.horizontal, Spacing.sm)
+            .padding(.vertical)
+            .background(Color.black)
+        }
     }
 }
 

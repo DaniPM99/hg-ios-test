@@ -11,20 +11,13 @@ import AVFoundation
 
 struct TiersView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var player = AVPlayer(url: Bundle.main.url(forResource: "starLoop", withExtension: "mp4")!)
-    @State private var showLastFrame = false
+    @StateObject var viewModel: TiersViewModel
     
     var body: some View {
         ZStack {
-            VideoPlayer(player: player)
+            VideoPlayer(player: viewModel.player)
                 .onAppear {
-                    player.play()
-                    // Escuchar cuando termina el vídeo
-                    NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime,
-                                                           object: player.currentItem,
-                                                           queue: .main) { _ in
-                        showLastFrame = true
-                    }
+                    viewModel.player.play()
                 }
                 .scaledToFill()
                 .ignoresSafeArea()
@@ -41,54 +34,44 @@ struct TiersView: View {
                 Spacer()
                 VStack (spacing: 32) {
                     TierTag(
-                        tagStyle: .silver,
+                        tagStyle: viewModel.tier,
                         tierActive: false
                     )
-                    Text("WELCOME\nSTARTER.")
+                    Text(viewModel.tier.tierTitle)
                         .font(.hgTierTitle)
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)
                     HStack {
-                        Image(systemName: "sparkle")
-                            .foregroundStyle(.white)
-                        Image(systemName: "sparkle")
-                            .foregroundStyle(.terracota)
-                        Image(systemName: "sparkle")
-                            .foregroundStyle(.terracota)
-                        Image(systemName: "lock.fill")
-                            .foregroundStyle(.terracota)
+                        ForEach(1..<5) { item in
+                            if (item <= viewModel.tier.numberOfStars) {
+                                Image(systemName: "sparkle")
+                                    .foregroundStyle(.white)
+                            } else {
+                                Image(systemName: "lock.fill")
+                                    .foregroundStyle(.terracota)
+                            }
+                        }
                     }
-                    Text("Say hello to our new loyalty\nprogram; Honest People.")
+                    Text(viewModel.tier.tierSubtitle)
                         .font(.hgRewardTitle)
                         .foregroundStyle(.white)
                         .multilineTextAlignment(.center)
-                    HgTierButton()
+                    HgTierButton(
+                        action: { viewModel.setShowingSheet(true)
+                        }
+                    )
                 }
             }
             .padding(Spacing.xl)
         }
+        .sheet(isPresented: $viewModel.showingSheet) {
+            let tiersLegendViewModel = TiersLegendViewModel(tier: viewModel.tier, expierDate: "01/01/2025")
+            TiersLegendView(viewModel: tiersLegendViewModel)
+        }
     }
-}
-
-struct VideoBackgroundView: UIViewRepresentable {
-    let player: AVPlayer
-
-    func makeUIView(context: Context) -> UIView {
-        let view = UIView(frame: .zero)
-        
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.videoGravity = .resizeAspectFill  // 🔹 Llena el frame sin dejar negro
-        playerLayer.frame = view.bounds
-        playerLayer.needsDisplayOnBoundsChange = true
-        
-        view.layer.addSublayer(playerLayer)
-        player.play()
-        return view
-    }
-
-    func updateUIView(_ uiView: UIView, context: Context) {}
 }
 
 #Preview {
-    TiersView()
+    var viewModel = TiersViewModel(tier: .bronze)
+    TiersView(viewModel: viewModel)
 }

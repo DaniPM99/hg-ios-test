@@ -17,7 +17,7 @@ struct HgProgressView: View {
     ]
     var body: some View {
         VStack (spacing: 12) {
-            ProgressView(value: points, total: 80)
+            ProgressView(value: (points*80/100), total: 80)
                 .progressViewStyle(
                     LinearProgressViewStyle(tint:.honestVisibility)
                 )

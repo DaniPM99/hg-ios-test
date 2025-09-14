@@ -20,6 +20,7 @@ struct Header: View {
             }
             Spacer()
             Text(title)
+                .font(.hgRewardTitle)
                 .foregroundStyle(.white)
             Spacer()
             if (closeButton) {

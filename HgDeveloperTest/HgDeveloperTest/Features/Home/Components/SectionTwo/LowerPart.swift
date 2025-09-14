@@ -50,7 +50,8 @@ struct LowerPart: View {
                 }
             }
         }
-        .frame(width: 339, height: 168)
+        .frame(height: 168)
+        .frame(maxWidth: .infinity)
         .background(.white)
     }
 }
